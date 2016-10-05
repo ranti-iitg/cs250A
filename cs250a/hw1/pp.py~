@@ -111,7 +111,7 @@ with open("hw1_word_counts_05.txt", "r") as lines:
     	return p_l_e
     
     print "hix	"
-    print p_l_given_evidence("A");
+    print p_l_given_evidence("E");
     #print p_l_in_word("THREE","J");
     #print p_word_given_evidence("THREE")
     #print p_evidence()	
