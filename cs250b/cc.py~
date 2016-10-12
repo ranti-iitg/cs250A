@@ -1,0 +1,7 @@
+from load import mnist
+import numpy as np
+from math import sqrt
+A=[3,2]
+B=[4,5]
+
+print sqrt(sum( (a - b)**2 for a, b in zip(A, B)))

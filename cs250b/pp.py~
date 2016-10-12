@@ -15,7 +15,7 @@ print trY[0]
 #S[0]=np.vstack([S[0],np.array([2,0,3])])
 #print S[0]
 
-
+'''
 i=0
 while i<10:
 	j=0
@@ -31,15 +31,25 @@ print S
 print "hello"
 print S[0]
 
+'''
 
 SlistY=[]
 SlistX=[]
 SlistX.append(trX[0])
 SlistY.append(trY[0])
-
+#testfunction
+def test(start,end,testX,testY,SlistX,SlistY):
+	error=0
+	i=start
+	while i <  end:
+		if np.argmax(testY[i])!=minDis(testX[i],SlistX,SlistY):
+			error=error+1
+		i=i+1
+	return (error,end-start)
+#distance function
 def minDis(X,ArrX,ArrY):
 	i=0
-	mdis=0
+	mdis=999999
 	mdisi=-1
 	while i<len(ArrX):
 		cdis=sqrt(sum( (a - b)**2 for a, b in zip(ArrX[i], X)))
@@ -47,18 +57,45 @@ def minDis(X,ArrX,ArrY):
 			mdis=cdis
 			mdisi=i
 		i=i+1
-	return mp.argmin(ArrY[mdisi])
+	return np.argmax(ArrY[mdisi])
 	
-
+#main algo
+print "main algo"
+print trY[0]
+print np.argmax(trY[0])
 def Onenn(trX,trY):
 	i=0
-	while i < 60000:
-		if np.argmin(trY[i])!=minDis(trX[i],SlistX,SlistY):
+	while i < 600:
+		#print "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+		#print np.argmax(trY[i])
+		if np.argmax(trY[i])!=minDis(trX[i],SlistX,SlistY):
+		#	print "expected"
+		#	print i
+		#	print trY[i]
+		#	print np.argmax(trY[i])
+		#	print "but getting"
+		#	print  minDis(trX[i],SlistX,SlistY)
 			SlistX.append(trX[i])
 			SlistY.append(trY[i])
 		i=i+1
+
 Onenn(trX,trY)
 print "hello"
-print SlistX
+for item in SlistY:
+	print np.argmax(item)
+
+print len(SlistX)
+print test(0,100,teX,teY,SlistX,SlistY)
+print "again"
+Onenn(trX,trY)
+print len(SlistX)
+print test(0,100,teX,teY,SlistX,SlistY)
+print "again"
+Onenn(trX,trY)
+print len(SlistX)
+print test(0,100,teX,teY,SlistX,SlistY)
+
+
+
 			
 
