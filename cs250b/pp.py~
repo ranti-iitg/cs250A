@@ -35,6 +35,8 @@ print S[0]
 
 SlistY=[]
 SlistX=[]
+RlistX=trX[:200]
+RlistY=trY[:200]
 SlistX.append(trX[0])
 SlistY.append(trY[0])
 #testfunction
@@ -58,11 +60,36 @@ def minDis(X,ArrX,ArrY):
 			mdisi=i
 		i=i+1
 	return np.argmax(ArrY[mdisi])
+
+def minDis_except_j(X,ArrX,ArrY,j):
+	i=0
+	mdis=999999
+	mdisi=-1
+	while i<len(ArrX):
+		if i!=j:
+			cdis=sqrt(sum( (a - b)**2 for a, b in zip(ArrX[i], X)))
+			if cdis<mdis:
+				mdis=cdis
+				mdisi=i
+		i=i+1
+	return np.argmax(ArrY[mdisi])
 	
 #main algo
 print "main algo"
 print trY[0]
 print np.argmax(trY[0])
+SSlistX=[]
+SSlistY=[]
+
+def reducesize(trX,trY):
+	i=0
+	while(i<len(trX)):
+		if np.argmax(trY[i])!=minDis_except_j(trX[i],trX,trY,i):
+			SSlistX.append(trX[i])
+			SSlistY.append(trY[i])
+		i=i+1
+				
+			
 def Onenn(trX,trY):
 	i=0
 	while i < 600:
@@ -78,6 +105,7 @@ def Onenn(trX,trY):
 			SlistX.append(trX[i])
 			SlistY.append(trY[i])
 		i=i+1
+		#print i
 
 Onenn(trX,trY)
 print "hello"
@@ -86,14 +114,31 @@ for item in SlistY:
 
 print len(SlistX)
 print test(0,100,teX,teY,SlistX,SlistY)
+print test(0,100,teX,teY,RlistX,RlistY)
+reducesize(SlistX,SlistY)
+print "length of ssslist"
+print len(SSlistX)
+print test(0,100,teX,teY,SSlistX,SSlistY)
+print "again"
+SlistX=SSlistX
+SlistY=SSlistY
+print len(SlistX)
+print "check equal"
+print SlistX[0]
+print SSlistX[0]
+
+del SSlistX
+del SSlistY
+
+Onenn(trX,trY)
+print len(SlistX)
+print test(0,100,teX,teY,SlistX,SlistY)
+print test(0,100,teX,teY,RlistX,RlistY)
 print "again"
 Onenn(trX,trY)
 print len(SlistX)
 print test(0,100,teX,teY,SlistX,SlistY)
-print "again"
-Onenn(trX,trY)
-print len(SlistX)
-print test(0,100,teX,teY,SlistX,SlistY)
+print test(0,100,teX,teY,RlistX,RlistY)
 
 
 
