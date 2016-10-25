@@ -49,7 +49,31 @@ for xb in xxb:
 	nums = [int(n) for n in xb.split()]
 	dd[nums[0]-1][nums[1]-1]=nums[2]
 
+print dd[0][0]
 
-def p_wi_wj(wi,wj):
-	cij/ci
+def p_w_w(word_dash,word):
+	count_w_dash_w=0
+	count_w=0;
+	index_word_dash=0
+	index_word=0
+	if word_dash in listvocab:
+		index_word_dash=listvocab.index(word_dash)
+	if word in listvocab:
+		index_word-listvocab.index(word)
+	count_w_dash_w=dd[index_word_dash,index_word]
+	count_w=listcount[index_word]
 	
+	return float(float(count_w_dash_w)/float(count_w))
+
+def p_w_given_not_given(word_dash):
+	list_all=[]
+	for w in listvocab:
+		j=p_w_w(word_dash,w)
+		list_all.append(j)
+
+	list3=sorted(range(len(list_all)), key=lambda i: list_all[i])[-5:]
+#	list_words=listvocab[list3]
+	for ii in list3:
+		print listvocab[i]
+		print list_all[i]
+ 
