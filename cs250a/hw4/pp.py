@@ -100,7 +100,7 @@ def give_it_u(sentence):
 	return ret
 
 print "answer 4.3c unigram"
-give_it_u("Last week the stock market fell by one hundred points.")
+print give_it_u("Last week the stock market fell by one hundred points.")
 
 def give_it_b(sentence):
 	sentence_upper=sentence.upper()
