@@ -99,7 +99,7 @@ def give_it_u(sentence):
 
 	return ret
 
-
+print "answer 4.3c unigram"
 give_it_u("Last week the stock market fell by one hundred points.")
 
 def give_it_b(sentence):
@@ -116,6 +116,7 @@ def give_it_b(sentence):
 	return ret
 
 print give_it_b("Last week the stock market fell by one hundred points.")
+print "answer 4.3d unigram"
 print give_it_u("The nineteen officials sold fire insurance.")
 print give_it_b("The nineteen officials sold fire insurance.")
 
