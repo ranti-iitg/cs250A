@@ -92,7 +92,7 @@ def reducesize(trX,trY):
 			
 def Onenn(trX,trY):
 	i=0
-	while i < 600:
+	while i < 50000:
 		#print "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 		#print np.argmax(trY[i])
 		if np.argmax(trY[i])!=minDis(trX[i],SlistX,SlistY):
@@ -105,16 +105,37 @@ def Onenn(trX,trY):
 			SlistX.append(trX[i])
 			SlistY.append(trY[i])
 		i=i+1
+		if i%100==0:
+			print i
 		#print i
 
-Onenn(trX,trY)
-print "hello"
-for item in SlistY:
-	print np.argmax(item)
+def Onenn10(trX,trY):
+	i=0
+	while i < 10000:
+		#print "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+		#print np.argmax(trY[i])
+		if np.argmax(trY[i])!=minDis(trX[i],SlistX,SlistY):
+		#	print "expected"
+		#	print i
+		#	print trY[i]
+		#	print np.argmax(trY[i])
+		#	print "but getting"
+		#	print  minDis(trX[i],SlistX,SlistY)
+			SlistX.append(trX[i])
+			SlistY.append(trY[i])
+		i=i+1
+		if i%100==0:
+			print i
+		#print i
 
+
+
+Onenn10(trX,trY)
+print "hello"
 print len(SlistX)
 print test(0,100,teX,teY,SlistX,SlistY)
-print test(0,100,teX,teY,RlistX,RlistY)
+#print test(0,100,teX,teY,RlistX,RlistY)
+'''
 reducesize(SlistX,SlistY)
 print "length of ssslist"
 print len(SSlistX)
@@ -122,24 +143,31 @@ print test(0,100,teX,teY,SSlistX,SSlistY)
 print "again"
 SlistX=SSlistX
 SlistY=SSlistY
+print len(SSlistX)
 print len(SlistX)
 print "check equal"
-print SlistX[0]
-print SSlistX[0]
+#print SlistX[0]
+#print SSlistX[0]
 print "check above"
 del SSlistX
 del SSlistY
-
+'''
 Onenn(trX,trY)
 print len(SlistX)
 print test(0,100,teX,teY,SlistX,SlistY)
-print test(0,100,teX,teY,RlistX,RlistY)
+#print test(0,100,teX,teY,RlistX,RlistY)
 print "again"
 Onenn(trX,trY)
 print len(SlistX)
 print test(0,100,teX,teY,SlistX,SlistY)
-print test(0,100,teX,teY,RlistX,RlistY)
-
+#print test(0,100,teX,teY,RlistX,RlistY)
+ii=0
+while ii<10:
+	Onenn(trX,trY)
+	print len(SlistX)
+	print test(0,100,teX,teY,SlistX,SlistY)
+	#print test(0,100,teX,teY,RlistX,RlistY)
+ii=ii+1
 
 
 			
